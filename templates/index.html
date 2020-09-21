@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+{% for article in articles_page.object_list %}
+<article class="post">
+    <header class="post-header">
+        <h2 class="post-title">
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+                {{ article.title }}
+            </a>
+        </h2>
+        <span class="post-publishing_date">{{ article.locale_date }}</span>
+    </header>
+
+    <section>
+        {{ article.summary }}
+    </section>
+    <footer class="post-footer">
+
+    </footer>
+</article>
+{% endfor %}
+
+{% include "pagination.html" %}
+
+{% endblock content %}

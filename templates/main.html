@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            font-size: 16pt;
+        }
+
+        .page {
+            max-width: 1024px;
+            margin: 0 auto;
+            min-height: 100%;
+        }
+
+        .page nav {
+            padding: 1em 0;
+            clear: left;
+        }
+
+        .page nav ul {
+            padding: 0;
+        }
+
+        .page nav ul li {
+            list-style: none;
+            display: block;
+            float: left;
+        }
+
+        .page nav ul li:nth-child(n+2):before {
+            padding: 0 1em 0;
+            content: "∗";
+        }
+
+        .page article.post .post-publishing_date {
+            color: darkgrey;
+            clear: both;
+        }
+
+        .page article.post p {
+            text-align: justify;
+        }
+
+        .page article.post figure.post-figure {
+            display: inline-block;
+            margin: 0 0 1em 0;
+        }
+
+        .page article.post figure.post-figure figcaption {
+            text-align: center;
+            font-size: .9em;
+        }
+
+        .page article.post figure.post-figure__left {
+            float: left;
+            margin-right: 1em;
+        }
+
+        .page article.post figure.post-figure__right {
+            float: right;
+            margin-left: 1em;
+        }
+
+        .page article.post blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 0;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+        .page article.post blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+
+        .page article.post blockquote p {
+            display: inline;
+        }
+
+        .page article.post blockquote cite:before {
+            padding-right: .2em;
+            content: "—";
+        }
+
+        .page article.post blockquote cite {
+            text-align: right;
+            display: block;
+        }
+
+        @media screen {
+            .page article.post .sidenote {
+                display: block;
+                max-width: 10em;
+                width: 10em;
+                position: absolute;
+                top: auto;
+                padding: 0 .5em;
+            }
+
+            .page article.post .sidenote.sidenote__left {
+                margin-left: -12em;
+                text-align: right;
+                border-right: 2px solid #ccc;
+            }
+
+            .page article.post .sidenote.sidenote__right {
+                border-left: 2px solid #ccc;
+                position: relative;
+                float: right;
+                width: 10em;
+                margin-right: -12em;
+            }
+        }
+
+        .page article.post footer.post-footer ul {
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+        }
+
+        .page article.post footer.post-footer ul li {
+            list-style: none;
+            display: block;
+            float: left;
+        }
+
+        .page article.post footer.post-footer ul li:nth-child(n+2):before {
+            padding: 0 .5em 0 0;
+            content: ",";
+        }
+
+        .page footer.page-footer {
+            clear: right;
+            display: block;
+            margin: 1em 0;
+            padding: 1em 0;
+        }
+
+        .page footer.page-footer section.footer.footer-social ul {
+            padding: 0;
+        }
+
+        .page footer.page-footer section.footer.footer-social ul li {
+            list-style: none;
+            display: block;
+            float: left;
+        }
+
+        .page footer.page-footer section.footer.footer-social ul li:nth-child(n+2):before {
+            padding: 0 1em 0;
+            content: "∗";
+        }
+
+        @media screen and (max-width: 1280px) {
+            .page {
+                max-width: 860px;
+                margin: 0 auto;
+            }
+
+            .page nav {
+                font-size: 18pt;
+            }
+
+            .page article.post span.sidenote {
+                position: relative;
+                display: inline-block;
+                clear: both;
+                margin: 0;
+                padding: 0;
+                width: 30%;
+                max-width: 100%;
+
+            }
+
+            .page article.post span.sidenote.sidenote__left {
+                float: left;
+                margin-left: 0;
+                text-align: left;
+                border: 0;
+            }
+
+            .page article.post span.sidenote.sidenote__right {
+                float: right;
+                margin-right: 0;
+                padding: 0 0 1em 1em;
+                border: 0;
+            }
+        }
+
+        @media print {
+            p {
+                text-indent: 1.5em;
+            }
+
+            a:after{
+                content: " (" attr(href) ") ";
+            }
+
+            .page nav,
+            .page header.page-header,
+            .page footer.page-footer {
+                display: none;
+            }
+
+            .page article.post span.sidenote {
+                display: table;
+                border-left: 1px dotted #cccccc;
+                padding-left: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header class="page-header">
+        <h1>site title</h1>
+        <span>some description</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">main</a></li>
+            <li><a href="/">about</a></li>
+            <li><a href="/">contact</a></li>
+        </ul>
+    </nav>
+
+    <article class="post">
+        <header class="post-header">
+        <h2 class="post-title">post title</h2>
+        <span class="post-publishing_date">date and time</span>
+        </header>
+
+        <section>
+
+        <figure class="post-figure post-figure__left">
+            <img class="post-image" src="https://via.placeholder.com/350" alt="post title">
+            <figcaption class="post-figcaption">post image caption</figcaption>
+        </figure>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin <a href="https://google.com">hendrerit</a> egestas nisl. Donec pharetra mollis arcu, facilisis hendrerit nunc finibus ut. Praesent rhoncus velit vel ipsum porta pharetra. Aliquam euismod quis tellus vel posuere. Fusce orci ante, aliquam non fringilla a, eleifend eget enim. Sed eget magna felis. Fusce molestie augue velit, et placerat nibh pharetra id. Nunc ultrices erat lobortis vulputate dignissim. Donec vitae purus a magna convallis rutrum nec nec leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean facilisis finibus metus, a semper dolor.
+        </p>
+
+        <p>
+            "Proin id dolor hendrerit, sodales felis eget, ullamcorper ex." Donec ornare justo non elementum sagittis. Sed pretium nisi massa, sit amet mollis dui maximus quis. Pellentesque vehicula sapien non rutrum cursus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat felis non massa semper fringilla. Quisque ac aliquam metus. Donec consectetur ipsum ex, id iaculis leo egestas eget. Nulla id risus odio. Vestibulum vel diam luctus, dapibus quam sit amet, pulvinar nisi. Vivamus eu ipsum non dolor ultricies ultricies. Nulla dictum lectus et finibus gravida. Phasellus eget risus scelerisque, tincidunt odio id, iaculis urna. Aliquam pharetra nec dolor ut rhoncus. Cras vitae diam convallis tellus vehicula hendrerit.
+        </p>
+
+            <span class="sidenote sidenote__right">
+                Nunc gravida est at purus pretium luctus. In ut neque hendrerit, malesuada felis sed, sagittis sem.
+            </span>
+            <p>
+            Nullam maximus laoreet congue. Aliquam semper pellentesque placerat. Suspendisse suscipit euismod sodales. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec finibus ligula nec odio interdum, at egestas diam posuere. Fusce sit amet pellentesque leo, at hendrerit erat. Quisque placerat, ex tempor congue malesuada, tortor tellus faucibus risus, eget finibus nisi ipsum in urna. Fusce nec placerat purus, et ultrices elit. Aliquam aliquam maximus lectus, eget consectetur sem commodo a. Vivamus blandit, libero eu porttitor rutrum, nulla odio dapibus quam, sed semper mi eros scelerisque massa. Pellentesque interdum enim id scelerisque malesuada. Sed sollicitudin dignissim tortor vel malesuada. Cras dolor elit, suscipit non dui id, rutrum iaculis urna.
+        </p>
+
+            <blockquote>
+                <p>Pellentesque est nunc, auctor nec pellentesque vitae, tristique sit amet nulla.</p>
+                <cite>some person</cite>
+            </blockquote>
+            <figure class="post-figure post-figure__right">
+                <img class="post-image" src="https://via.placeholder.com/250?text=post+image" alt="post title">
+                <figcaption class="post-figcaption">post image caption</figcaption>
+            </figure>
+            <span class="sidenote sidenote__left">
+                Nunc gravida est at purus pretium luctus. In ut neque hendrerit, malesuada felis sed, sagittis sem.
+            </span>
+            <p>
+            Suspendisse turpis erat, aliquet et rhoncus eu, iaculis vitae mauris. Aenean rutrum faucibus nulla in porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus egestas sed lectus ac sagittis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam laoreet ullamcorper enim, eget tempor lacus imperdiet a. Donec suscipit porttitor dui. Maecenas est augue, semper quis est nec, tempus tincidunt nunc. Morbi quis neque cursus, porta nisi bibendum, maximus elit. Nulla vel tortor non arcu eleifend bibendum. Nam elit eros, sodales quis venenatis in, consectetur congue tortor. Etiam tempor dolor ac risus vehicula convallis. Aliquam ut lectus mauris. Fusce quis imperdiet lectus.
+        </p>
+
+        <p>
+            Pellentesque est nunc, auctor nec pellentesque vitae, tristique sit amet nulla. Nunc gravida est at purus pretium luctus. In ut neque hendrerit, malesuada felis sed, sagittis sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam sit amet felis in dolor auctor porttitor et nec ex. Morbi id dictum massa. Duis maximus, velit nec aliquam pellentesque, purus nibh efficitur dui, non tincidunt augue sapien pretium quam. Phasellus faucibus mauris at justo venenatis fermentum. Phasellus id congue ipsum, eget tincidunt eros. Integer pretium, nunc a pulvinar rutrum, enim ante pulvinar erat, a sagittis nibh sapien id magna. Vestibulum lacinia pellentesque ante a faucibus. Vestibulum fermentum, lorem eget gravida dignissim, justo arcu eleifend dolor, sit amet mattis odio ipsum at nisi. In eget ligula eget lorem lacinia faucibus. Aliquam tempus nisl et metus euismod dapibus.
+        </p>
+        </section>
+        <footer class="post-footer">
+            <ul class="post-tags">
+                <li><a href="/">tag1</a></li>
+                <li><a href="/">tag2</a></li>
+                <li><a href="/">tag3</a></li>
+            </ul>
+        </footer>
+    </article>
+
+    <footer class="page-footer">
+        <section class="footer footer-social">
+            <ul>
+                <li><a href="/">facebook</a></li>
+                <li><a href="/">linkedin</a></li>
+                <li><a href="/">github</a></li>
+            </ul>
+        </section>
+    </footer>
+</div>
+</body>
+</html>

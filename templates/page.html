@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block title %}{{ page.title }}{% endblock title %}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+<article class="post">
+    <header class="post-header">
+    <h2 class="post-title">{{ page.title }}</h2>
+    </header>
+
+    <section>
+        {{ page.content }}
+    </section>
+    <footer class="post-footer"> </footer>
+</article>
+{% endblock content %}

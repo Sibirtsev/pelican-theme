@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+
+{% for keyword in article.keywords %}
+<meta name="keywords" contents="{{keyword}}" />
+{% endfor %}
+
+{% for description in article.description %}
+<meta name="description" contents="{{description}}" />
+{% endfor %}
+
+{% for tag in article.tags %}
+<meta name="tags" contents="{{tag}}" />
+{% endfor %}
+
+{% endblock %}
+
+{% block opengraph %}
+{{ super() }}
+<meta property="og:type" content="article">
+<meta property="article:author" content="{{ author }}">
+<meta property="og:url" content="{{ SITEURL }}/{{ article.url }}">
+<meta property="og:title" content="{{ article.title }}">
+<meta property="og:description" content="{{ article.headline }}">
+<meta property="og:image" content="{{ SITEURL }}/{{ article.header_cover }}">
+<meta property="article:published_time" content="{{ article.date }}">
+{% endblock %}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+<article class="post">
+    <header class="post-header">
+        <h2 class="post-title">{{ article.title }}</h2>
+        <span class="post-publishing_date">{{ article.locale_date }}</span>
+    </header>
+
+    <section>
+        {{article.content}}
+    </section>
+
+    <footer class="post-footer">
+        <ul class="post-tags">
+            <li><a href="{{ article.category.url }}">{{ article.category.page_name }}</a></li>
+            {% for tag in article.tags %}
+            <li><a href="{{ tag.url }}">{{ tag.page_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </footer>
+</article>
+{% endblock content %}
